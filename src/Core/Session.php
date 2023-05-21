@@ -22,15 +22,15 @@ class Session {
         return $_SESSION[$name];
     }
 
-    public static function setFlash($string, $style = 'success') {
-        $string = '<div class="alert alert-' . $style .  '" role="alert">' . $string . '</div>';
-        self::put('message', $string);
-    }
+    // public static function setFlash($string, $style = 'success') {
+    //     $string = '<div class="alert alert-' . $style .  '" role="alert">' . $string . '</div>';
+    //     self::put('message', $string);
+    // }
 
-    public static function showFlash() {
-        $html = self::exists('message') ? self::get('message') : null;
-        self::delete('message');
-        return $html;
-    }
+    // public static function showFlash() {
+    //     $html = self::exists('message') ? self::get('message') : null;
+    //     self::delete('message');
+    //     return $html;
+    //}
 
 }

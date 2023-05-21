@@ -15,22 +15,13 @@ class VK {
                 'code' => $code,
             );
         
-            // $this->token = json_decode(file_get_contents('http://oauth.vk.com/access_token?' . urldecode(http_build_query( $params))), true);
-            // if($this->token) {
-            //     return $_SESSION['token'] = $this->token;
-            // } else {
-            //     return false;
-            // }
-            try {
-                $this->token = json_decode(file_get_contents('http://oauth.vk.com/access_token?' . urldecode(http_build_query( $params))), true);
-            }
-            catch (ParseError $e) {
+            $this->token = json_decode(file_get_contents('http://oauth.vk.com/access_token?' . urldecode(http_build_query( $params))), true);
+            if($this->token) {
+                return $_SESSION['token'] = $this->token;
+            } else {
                 return false;
             }
-            
-            return $_SESSION['token'] = $this->token;
-       
-      
+ 
     }    
 
     public function getInfo($token) {
