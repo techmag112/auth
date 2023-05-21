@@ -12,7 +12,7 @@ class User {
 
         if(!$user) { 
             if(Session::exists($this->session_name)) {
-                    if (is_array(Session::get($this->session_name)) && (Session::get($this->session_name)['role'] === 1)) {
+                    if ((Session::exists($this->session_name)) && is_array(Session::get($this->session_name)) && (Session::get($this->session_name)['role'] === 1)) {
                         $this->data = json_decode(json_encode(Session::get($this->session_name)));
                         $this->isLoggedIn = true;
                     } else {
@@ -33,8 +33,8 @@ class User {
     }
 
     public function login($email = null, $password = null, $remember = false) {
-        //if((Session::exists($this->session_name)) && (Session::get($this->session_name)['role'] === 1)) {
-        if(is_array(Session::get($this->session_name)) && (Session::get($this->session_name)['role'] === 1)) {
+        
+        if((Session::exists($this->session_name)) && is_array(Session::get($this->session_name)) && (Session::get($this->session_name)['role'] === 1)) {
             return true;
         } else {
             if(!$email && !$password && $this->exists()) {
