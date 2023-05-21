@@ -1,0 +1,20 @@
+{
+    "name": "tm/auth",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Tm\\Auth\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Oleg Khayrullin",
+            "email": "oleg.khayrullin@gmail.com"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^3.3",
+        "tamtamchik/simple-flash": "^3.0",
+        "league/plates": "^3.5"
+    }
+}
